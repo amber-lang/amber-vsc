@@ -1,52 +1,88 @@
 {
-    "Loop In": {
-        "prefix": "loopin",
-        "scope": "amber, soruce.amber",
+    "For Loop": {
+        "prefix": "for",
         "body": [
-          "loop ${1:iter} in ${2:iterable} {",
-          "\t$0",
-          "}"
+            "for ${1:item} in ${2:iterable} {",
+            "\t$0",
+            "}"
         ],
         "description": "For Loop"
     },
-    "Loop While": {
-        "prefix": "loopwhile",
-        "scope": "amber, soruce.amber",
+    "While Loop": {
+        "prefix": "while",
         "body": [
-          "loop ${1:condition} {",
-          "\t$0",
-          "}"
+            "while ${1:condition} {",
+            "\t$0",
+            "}"
         ],
-        "description": "For Loop"
+        "description": "While Loop"
     },
-    "Loop": {
+    "Infinite Loop": {
         "prefix": "loop",
-        "scope": "amber, soruce.amber",
         "body": [
-          "loop {",
-          "\t$0",
-          "}"
+            "loop {",
+            "\t$0",
+            "}"
         ],
-        "description": "For Loop"
+        "description": "Infinite Loop"
     },
     "If": {
         "prefix": "if",
-        "scope": "amber, soruce.amber",
         "body": [
-          "if ${1:condition} {",
-          "\t$0",
-          "}"
+            "if ${1:condition} {",
+            "\t$0",
+            "}"
         ],
         "description": "If Statement"
     },
+    "If Else": {
+        "prefix": "ifelse",
+        "body": [
+            "if ${1:condition} {",
+            "\t$2",
+            "} else {",
+            "\t$0",
+            "}"
+        ],
+        "description": "If Else Statement"
+    },
+    "If Chain": {
+        "prefix": "ifchain",
+        "body": [
+            "if {",
+            "\t${1:condition} {",
+            "\t\t$2",
+            "\t}",
+            "\telse {",
+            "\t\t$0",
+            "\t}",
+            "}"
+        ],
+        "description": "If Chain (Switch-like)"
+    },
     "Function": {
         "prefix": "fun",
-        "scope": "amber, soruce.amber",
         "body": [
-          "fun ${2:name}(${3:params}) {",
-          "\t$0",
-          "}"
+            "fun ${1:name}(${2:params})${3:: Type} {",
+            "\t$0",
+            "}"
         ],
-        "description": "Function"
+        "description": "Function Definition"
+    },
+    "Main": {
+        "prefix": "main",
+        "body": [
+            "main (${1:args}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "Main Function"
+    },
+    "Import": {
+        "prefix": "import",
+        "body": [
+            "import { ${1:names} } from \"${2:path}\""
+        ],
+        "description": "Import Statement"
     }
 }

@@ -22,6 +22,10 @@
 		"keywords": {
 			"patterns": [
 			{
+				"match": "^#!.*$",
+				"name": "comment.line.shebang.amber"
+			},
+			{
 				"match": "(fun)\\s+(\\w[^\\(]+)",
 
 				"captures": {
@@ -35,7 +39,7 @@
 			},
 			{
 				"name": "keyword.control.amber",
-				"match": "\\b(if|loop|for|ref|return|fun|else|then|break|continue|and|or|not|let|import|from|pub|main|echo|as|in|fail|failed|status|silent|nameof|is|unsafe|trust)\\b"
+				"match": "\\b(if|loop|for|ref|return|fun|else|then|break|continue|and|or|not|let|const|import|from|pub|main|echo|cd|exit|mv|as|in|fail|failed|succeeded|exited|status|silent|nameof|len|lines|is|unsafe|trust|sudo|while)\\b"
 			},
 			{
 				"match": "^#\\[.*\\]$",
@@ -44,6 +48,10 @@
 			{
 				"match": "\\b(true|false|null)\\b(?![?!])",
 				"name": "constant.language.boolean.amber"
+			},
+			{
+				"match": "\\b(Text|Num|Int|Bool|Null)\\b",
+				"name": "support.type.amber"
 			},
 			{
 				"match": "[A-Z][a-z0-9_]+",
@@ -58,7 +66,7 @@
 				"name": "entity.name.function"
 			},
 			{
-				"name" : "support.function.git-rebase.amber.symbol",
+				"name" : "keyword.operator.amber",
 				"match" : "(\\+|\\-|\\^|\\*|\\=|\\||\\%|!|>|<|[.]{2}|\\?)"
 			},
 			{
@@ -116,7 +124,7 @@
 			]
 		},
 		"strings": {
-			"name": "string.quoted.single.amber",
+			"name": "string.quoted.double.amber",
 			"begin": "\"",
 			"end": "\"",
 			"patterns": [
